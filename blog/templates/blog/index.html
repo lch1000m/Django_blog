@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    
+    {% for obj in object_list %}
+    <div style="margin: 10% 0 10% 0;">
+        <h1 style="display: inline;"><a href="/blogs/detail/{{ obj.id }}">{{ obj.title }}</a></h1>
+        <img src="{{ obj.image.url }}" class="img-responsive" />
+        <h4>{{ obj.timestamp }}</h4>
+        <h6>{{ obj.content|linebreaks|truncatechars:100 }}</h6>
+        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+    </div>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if object_list.has_previous %}
+                <a href="?page={{ object_list.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+            </span>
+
+            {% if object_list.has_next %}
+                <a href="?page={{ object_list.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+        
+    </div>
+
+</body>
+
+</html>

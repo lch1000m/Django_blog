@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="col-sm-6 col-sm-offset-3">
+        
+        <h1>{{ title}} is working!</h1>
+        
+        <div>
+            <img src="{{ instance.image.url }}" class="img-responsive" />
+            <h1>{{ instance.title }} <small>{{ instance.timestamp }}</small></h1>
+            <h5>{{ instance.content|linebreaks }}</h5>
+        </div>    
+
+    </div>
+
+</body>
+
+</html>
