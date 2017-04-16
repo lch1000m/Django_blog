@@ -11,11 +11,9 @@
 <body>
     <div class="col-sm-6 col-sm-offset-3">
         
-        <h1>{{ title}} is working!</h1>
-        
         <div>
+            <h1>{{ instance.title }} <small><small>{{ instance.timestamp }}</small></small></h1>
             <img src="{{ instance.image.url }}" class="img-responsive" />
-            <h1>{{ instance.title }} <small>{{ instance.timestamp }}</small></h1>
             <h5>{{ instance.content|linebreaks }}</h5>
         </div>    
 

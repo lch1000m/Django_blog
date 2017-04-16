@@ -24,7 +24,7 @@ def post_detail(requset, id=None):
 
 def blog_main(requset):
     queryset_list = Post.objects.all()
-    paginator = Paginator(queryset_list, 2)  # show 2 instances per page
+    paginator = Paginator(queryset_list, 1)  # show 2 instances per page
 
     page_request_var = 'page'
     page = requset.GET.get(page_request_var)
@@ -40,7 +40,8 @@ def blog_main(requset):
     context = {
         'object_list': queryset,
         'title': 'List',
-        'page_request_var': page_request_var
+        'page_request_var': page_request_var,
+        'page': page
     }
 
     return render(requset, 'blog/index.html', context)
